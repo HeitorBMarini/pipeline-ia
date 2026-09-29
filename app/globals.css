@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --bg: #f4f5f9;
+  --panel: #ffffff;
+  --panel-2: #f8f9fc;
+  --line: #e4e7ef;
+  --fg: #151a2d;
+  --muted: #5d667e;
+  --faint: #8d95a8;
+  --accent: #5b4ff0;
+  --accent-fg: #ffffff;
+  --accent-soft: #eeecfe;
+  --hot: #e5484d;
+  --warm: #e59a1a;
+  --cold: #3e8bd9;
+  --ok: #1f9d63;
+}
+
+[data-theme="dark"] {
+  --bg: #0d1020;
+  --panel: #151a2e;
+  --panel-2: #1a2036;
+  --line: #262d47;
+  --fg: #e9ecf5;
+  --muted: #a1a9c0;
+  --faint: #6f7893;
+  --accent: #8b80ff;
+  --accent-fg: #0d1020;
+  --accent-soft: #252252;
+  --hot: #ff6b6f;
+  --warm: #f2b441;
+  --cold: #62a8f0;
+  --ok: #3ccf8e;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-panel-2: var(--panel-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-hot: var(--hot);
+  --color-warm: var(--warm);
+  --color-cold: var(--cold);
+  --color-ok: var(--ok);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Destaque quando o assistente mexe num card */
+@keyframes flash {
+  0% { box-shadow: 0 0 0 0 var(--accent); }
+  40% { box-shadow: 0 0 0 4px var(--accent-soft), 0 0 0 1px var(--accent); }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.flash {
+  animation: flash 1.6s ease-out;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.rise {
+  animation: rise 0.3s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flash, .rise { animation: none; }
+}
+
+.scroll-thin::-webkit-scrollbar { height: 8px; width: 8px; }
+.scroll-thin::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
