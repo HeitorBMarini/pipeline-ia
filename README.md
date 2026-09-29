@@ -2,6 +2,8 @@
 
 CRM de vendas com **funil kanban** e **IA aplicada ao processo comercial**. Todas as empresas, pessoas e conversas são fictícias.
 
+**Demo:** https://pipeline-ia-xi.vercel.app (roda em modo demonstração; veja abaixo)
+
 ## O que dá para fazer
 
 - **Funil kanban** com 6 etapas: arrastar e soltar cards, métricas de valor em aberto, previsão ponderada, taxa de ganho e negócios parados.
